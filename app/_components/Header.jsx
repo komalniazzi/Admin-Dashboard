@@ -48,7 +48,13 @@ export default function Header(props) {
             <Input
                fullWidth
                aria-label="search"
-               className="px-1 sm:px-5 "
+               classNames={{
+                  base:"max-w-full  sm:max-w-[18rem] h-10",
+                 mainWrapper: "h-full",
+                 input:"text-small",
+                 inputWrapper:"h-full font-normal bg-[#18181B] dark:bg-default-500/20"
+               }}
+            
                labelPlacement="outside"
                placeholder="Search..."
                endContent={

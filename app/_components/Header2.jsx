@@ -15,11 +15,20 @@ function Header2() {
    return (
       <div className='flex items-center justify-between p-2  '> 
          <Select     
-          className="max-w-xs"
+       classNames={{
+         base:"max-w-full sm:max-w-[12rem] h-12",
+         mainWrapper:"h-full",
+         input:"text-small text-white",
+         trigger:"bg-[#18181B] text-white",
+         innerWrapper:"h-full font-normal bg-[#18181B] dark:bg-default-500/20",
+          listbox: "bg-[#18181B] text-white",                
+             item: "hover:bg-gray-700",                           
+             label: "text-white font-bold ",  
+       }}
+       color="primary"
           defaultSelectedKeys={["this Year"]}
           label="Show:"
           radius="lg"
-          
           placeholder="Select Year"
         >
           {animals.map((animal) => (
