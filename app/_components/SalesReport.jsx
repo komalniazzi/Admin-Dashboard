@@ -42,7 +42,7 @@ export default function HeartRateChart() {
   const color = "success";
 
   return (
-    <Card className="max-w-md w-full p-4 bg-black text-white">
+    <Card className="w-full min-w-[300px] max-w-lg p-4 bg-black text-white">
 
       <ResponsiveContainer height={280}>
         <BarChart

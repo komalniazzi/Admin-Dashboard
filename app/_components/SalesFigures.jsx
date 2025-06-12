@@ -2,7 +2,7 @@
 import { TrendingUp } from "lucide-react"
  import SalesReportChart from "./SalesReport";
  import {Alert} from "@heroui/react";
-
+import SalesLocation from './SalesLocation';
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis , ResponsiveContainer,
   RadialBarChart,
   RadialBar,
@@ -155,6 +155,7 @@ function SalesFigures() {
               fill="none"
             
         stroke="red"
+        strokeWidth={3}
               stackId="a"
             />
             <Area
@@ -162,6 +163,7 @@ function SalesFigures() {
               type="natural"
              fill="none"
         stroke="green"
+        strokeWidth={3}
               stackId="a"
             />
           </AreaChart>
@@ -169,21 +171,21 @@ function SalesFigures() {
       </CardContent>
       
     </LocalCard>
-<div className="flex flex-row flex-wrap gap-6 md:gap-8 lg:gap-24  mt-4 items-start">
+<div className="flex flex-col  lg:flex-row flex-nowrap gap-6 md:gap-8 lg:gap-8  mt-4 items-start">
   
-  <div className="flex flex-col max-w-sm gap-2">
-<div className="max-w-sm">
-        <CircleChartCard {...chartItem} />
+  <div className="flex flex-col gap-2 w-full lg:w-auto lg:min-w-[500px]">
+<div className="w-full">
+        <CircleChartCard {...chartItem} className="w-full " />
       </div>
 
-      <div className="max-w-sm">
-        <CircleChartCard {...chartItem} />
+      <div className="w-full">
+        <CircleChartCard {...chartItem} className="w-full"/>
       </div>
 </div>
 
 
 {abnbStat && (
-  <div className="p-4 bg-black rounded-xl text-white w-full max-w-lg">
+  <div className="p-4 bg-black rounded-xl text-white flex-1 min-w-[300px] w-full lg:w-auto ">
    
     
 
@@ -212,7 +214,7 @@ function SalesFigures() {
   </div>
 )}
 </div>
-<div className="flex  flex-wrap gap-6 mt-6 justify-center ">
+<div className="flex  flex-wrap gap-6 mt-6 lg:gap-8 justify-center ">
 <div className="bg-black rounded-xl  p-4 sm:p-6 md:p-8 flex-1 min-w-[300px] max-w-[600px]">
   <div className="grid grid-cols-3 gap-4">
     <CircleChartCard {...chartItem} hideCenterText />
@@ -231,7 +233,7 @@ function SalesFigures() {
             base: "bg-[#001731]", 
             title: "text-white font-normal",           
            iconWrapper: "bg-[#001731] border-none",
-           alertIcon:"text-blue-900 " // Icon color
+           alertIcon:"text-blue-900 " 
           }}
                 />
           </div>
@@ -245,6 +247,20 @@ function SalesFigures() {
     </div>
 </div>
 
+
+<div className="flex flex-col gap-4 mt-6">
+        <div className="flex items-center justify-between">
+          <h1 className="font-bold text-white">New Customers</h1>
+          <div className="flex items-center gap-2">
+           <h1 className="font-bold text-white">Transaction History</h1>
+          </div>
+        </div>
+
+        
+          <div className="w-full flex flex-col lg:flex-row gap-6">
+            <SalesLocation />
+          </div>
+      </div>
 
       </section>
    )
@@ -260,7 +276,7 @@ const CircleChartCard = React.forwardRef(
     return (
       <Card
         ref={ref}
-        className={cn("h-[140px] max-w-[350px] md:max-w-[450px] border border-transparent bg-black", className)}
+        className={cn("h-[140px] w-full  border border-transparent bg-black", className)}
         {...props}
       >
         <div className="flex flex-col gap-y-2 p-4 pb-0">
