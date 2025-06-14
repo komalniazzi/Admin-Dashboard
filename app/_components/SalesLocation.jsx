@@ -85,10 +85,10 @@ const transactions = [
 
 const SalesLocation = () => {
   return (
-    <div className="w-full overflow-x-auto">
-      <div className="flex flex-col lg:flex-row flex-wrap gap-6 min-w-[300px]">    
-        <Card className="flex-1 min-w-[280px] bg-black rounded-xl  ">
-          <CardBody className='mt-10' >
+    <div className="w-full ">
+      <div className="flex flex-col lg:flex-row  gap-6 w-full">    
+        <Card className="w-full lg:w-[330px] lg:flex-none bg-black rounded-xl  ">
+          <CardBody className='mt-4' >
             <ul className="flex flex-col gap-5">
               {newCustomers.map((customer, index) => (
                 <li key={index} className="flex items-center justify-between">
@@ -122,14 +122,16 @@ const SalesLocation = () => {
           </CardFooter>
         </Card>
 
-        
-        <Card className="flex-1 min-w-[300px] bg-black">
+        <div className="flex-1 min-w-0">
+        <Card className="h-full bg-black rounded-xl">
          
-          <CardBody>
-            <Table aria-label="Transaction history" className="w-full"
+          <CardBody className='p-0'>
+            <div className="overflow-x-auto">
+            <Table aria-label="Transaction history" 
              classNames={{
   
-    wrapper:"bg-black",
+    wrapper:"bg-black w-full overflow-x-auto",
+     base: "min-w-[600px] md:min-w-full",
     tbody: "bg-black",
     th: "text-[#B3B3B3] bg-[#2E2E2E]  text-xs font-semibold py-3 px-4",
     td: "text-white py-4 px-4",
@@ -150,7 +152,7 @@ const SalesLocation = () => {
               <TableBody >
                 {transactions.map((txn, idx) => (
                   <TableRow key={idx} className="border-b border-[#2E2E2E]">
-                    <TableCell className="py-4 px-4">
+                    <TableCell>
                       <div className="flex items-start gap-3">
                         <div className={`w-6 h-6 rounded-full ${txn.bgColor} flex items-center justify-center mt-1`}>
                           <span className="text-xs text-white">{txn.icon}</span>
@@ -181,6 +183,7 @@ const SalesLocation = () => {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </CardBody>
           <CardFooter>
             <Button 
@@ -193,6 +196,7 @@ const SalesLocation = () => {
           </CardFooter>
         </Card>
       </div>
+    </div>
     </div>
   );
 };

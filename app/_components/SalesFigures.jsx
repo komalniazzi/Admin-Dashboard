@@ -217,9 +217,9 @@ function SalesFigures() {
 <div className="flex  flex-wrap gap-6 mt-6 lg:gap-8 justify-center ">
 <div className="bg-black rounded-xl  p-4 sm:p-6 md:p-8 flex-1 min-w-[300px] max-w-[600px]">
   <div className="grid grid-cols-3 gap-4">
-    <CircleChartCard {...chartItem} hideCenterText />
-    <CircleChartCard {...chartItem} hideCenterText />
-    <CircleChartCard {...chartItem} hideCenterText />
+    <CircleChartCard {...chartItem} gridLayout hideCenterText />
+    <CircleChartCard {...chartItem} gridLayout hideCenterText />
+    <CircleChartCard {...chartItem}  gridLayout hideCenterText />
   </div>
   <div className="flex items-center  justify-center w-full mt-4">
       <div className="flex flex-col  w-full">
@@ -257,7 +257,7 @@ function SalesFigures() {
         </div>
 
         
-          <div className="w-full flex flex-col lg:flex-row gap-6">
+          <div className="w-full ">
             <SalesLocation />
           </div>
       </div>
@@ -272,16 +272,15 @@ function formatTotal(value) {
 }
 
 const CircleChartCard = React.forwardRef(
-  ({ className, title, color, chartData, total,hideCenterText = false, ...props }, ref) => {
+  ({ className, title, color, chartData, total,hideCenterText = false,gridLayout = false, ...props }, ref) => {
     return (
       <Card
         ref={ref}
-        className={cn("h-[140px] w-full  border border-transparent bg-black", className)}
+        className={cn("h-[140px] w-full  border border-transparent bg-black", 
+          gridLayout && "min-w-[280px]", className)}
         {...props}
       >
-        <div className="flex flex-col gap-y-2 p-4 pb-0">
-         
-        </div>
+        
         <div className="flex h-full gap-x-3 pl-2">
           <ResponsiveContainer
             className="[&_.recharts-surface]:outline-none"
