@@ -7,7 +7,7 @@ import Sidebar from './_components/Sidebar'
 export default function Home () {
   return (
     <div className='flex w-full bg-black'>
-      <Sidebar />
+       <Sidebar />
       <div className='w-full p-2 bg-black'>
         <Header />
         <Header2 />

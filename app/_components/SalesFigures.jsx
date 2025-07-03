@@ -221,7 +221,7 @@ function SalesFigures() {
     <CircleChartCard {...chartItem} gridLayout hideCenterText />
     <CircleChartCard {...chartItem}  gridLayout hideCenterText />
   </div>
-  <div className="flex items-center  justify-center w-full mt-4">
+  {/* <div className="flex items-center  justify-center w-full mt-4">
       <div className="flex flex-col  w-full">
         {[ "primary"].map((color) => (
           <div key={color} className="w-full flex items-center my-3">
@@ -239,7 +239,7 @@ function SalesFigures() {
           </div>
         ))}
       </div>
-    </div>
+    </div> */}
   
 </div>
 <div className="flex-1 min-w-[300px] max-w-[600px]">
@@ -289,8 +289,8 @@ const CircleChartCard = React.forwardRef(
           >
             <RadialBarChart
               barSize={8}
-              cx="20%"
-              cy="50%"
+              cx="10%"
+              cy="30%"
               data={chartData}
               endAngle={-270}
               innerRadius={50}
